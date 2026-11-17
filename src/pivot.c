@@ -30,18 +30,20 @@ double SumDistance(const int k, const int n, const int dim, double* coord, int* 
         }
     }
 
-    /* Calculate the sum of Chebyshev distance with rebuilt coordinates between every points */
+    /* Calculate the sum of Chebyshev distance with rebuilt coordinates between every points
+       v1: chebyshev(i,j) == chebyshev(j,i) and chebyshev(i,i) == 0, so only the upper
+           triangle is summed and doubled. Halves the n*n loop, result is unchanged. */
     double chebyshevSum = 0;
     for(i=0; i<n; i++){
         int j;
-        for(j=0; j<n; j++){
+        for(j=i+1; j<n; j++){
             double chebyshev = 0;
             int ki;
             for(ki=0; ki<k; ki++){
                 double dis = fabs(rebuiltCoord[i*k + ki] - rebuiltCoord[j*k + ki]);
                 chebyshev = dis>chebyshev ? dis : chebyshev;
             }
-            chebyshevSum += chebyshev;
+            chebyshevSum += 2*chebyshev;
         }
     }
 
