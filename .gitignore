@@ -1,0 +1,9 @@
+perf.data*
+*.o
+pivot_O0
+pivot_O1
+pivot_O2
+pivot_O3
+pivot
+result.txt
+.DS_Store
