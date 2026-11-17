@@ -1,0 +1,13 @@
+# v0-baseline timing raw data
+
+Command: for i in 1 2 3; do ./pivot_O0 | grep "Using time"; done
+Binary: pivot_O0 (gcc -O0)
+Input: uniformvector-2dim-5h.txt (dim=2, n=500, k=2)
+Date: 2026-11-17
+
+run1: 495224.816 ms
+run2: 495500.360 ms
+run3: 494925.945 ms
+
+median: 495224.816 ms
+range: 574.415 ms (0.12% of median)
